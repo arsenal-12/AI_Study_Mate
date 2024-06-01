@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Selector</title>
+    <link rel="stylesheet" href="static/styles1.css">
+    <style>
+        .image-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .image-selector img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain the aspect ratio */
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .image-selector img:hover {
+            border: 2px solid #000;
+        }
+        #no4 {
+            transform: scale(1); /* Zoom out the image */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" onclick="redirectTo('Cloud Computing')">
+            <h2>Cloud Computing</h2>
+        </div>
+        <div class="card" onclick="redirectTo('Compiler Design and System Software')">
+            <h2>Compiler Design and System Software</h2>
+        </div>
+        <div class="card" onclick="redirectTo('Computer Network')">
+            <h2>Computer Network</h2>
+        </div>
+        <div class="card" onclick="redirectTo('Blockchain')">
+            <h2>Blockchain</h2>
+        </div>
+        <div class="card" onclick="redirectTo('Fundamentals of Cryptography')">
+            <h2>Fundamentals of Cryptography</h2>
+        </div>
+    </div>
+
+    <div class="image-selector">
+        <img src="{{ url_for('static', filename='images/f1.jpeg') }}" alt="F1 Image" onclick="selectImage('f1.jpeg')">
+        <img src="{{ url_for('static', filename='images/f3.jpg') }}" alt="F3 Image" onclick="selectImage('f3.jpg')">
+        <img src="{{ url_for('static', filename='images/f4.jpg') }}" id="no4" alt="F4 Image" onclick="selectImage('f4.jpg')">
+    </div>
+
+    <script>
+        function redirectTo(cardName) {
+            localStorage.setItem('selectedSubject', cardName);
+            console.log(`Selected subject stored in localStorage: ${cardName}`);
+            window.location.href = `chatbots/${cardName}.html`;
+        }
+
+        function selectImage(imageName) {
+            localStorage.setItem('selectedImage', imageName);
+            console.log(`Selected image stored in localStorage: ${imageName}`);
+        }
+        
+    </script>
+</body>
+</html>
