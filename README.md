@@ -57,6 +57,8 @@ Run the application:
 
 5. python main.py
 
+   Mental Chatbot using YouData.ai
+
 ### Usage
 
 Register for an account or log in if you already have one.
